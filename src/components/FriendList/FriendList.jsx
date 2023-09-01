@@ -1,16 +1,16 @@
 import FriendListItem from 'components/FriendListItem/FriendListItem';
 import PropTypes from 'prop-types';
-// import s from './Alert.module.css';
+import { FriendCard, PeopleList } from './FriendList.styled';
 
 function FriendList({ friends }) {
   return (
-    <ul className="friend-list">
+    <PeopleList>
       {friends.map(({ avatar, name, isOnline, id }) => (
-        <li className="item" key={id}>
+        <FriendCard key={id}>
           <FriendListItem avatar={avatar} name={name} isOnline={isOnline} />
-        </li>
+        </FriendCard>
       ))}
-    </ul>
+    </PeopleList>
   );
 }
 

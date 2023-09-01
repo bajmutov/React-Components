@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
+import { FriendName, FriendPhoto, FriendStatus } from './FriendListItem.styled';
 // import s from './Alert.module.css';
 
 function FriendListItem({ avatar, name, isOnline }) {
   return (
     <>
-      <span className="status"></span>
-      <img className="avatar" src={avatar} alt={name} width="48" />
-      <p className="name">{name}</p>
+      <FriendStatus $isOnline={isOnline}></FriendStatus>
+      <FriendPhoto src={avatar} alt={name} width="48" />
+      <FriendName>{name}</FriendName>
     </>
   );
 }

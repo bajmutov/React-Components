@@ -1,4 +1,13 @@
 import PropTypes from 'prop-types';
+import {
+  CardProfile,
+  DescriptionCardProfile,
+  PhotoProfile,
+  StatsCount,
+  StatsElementProfile,
+  StatsListProfile,
+  TextProfile,
+} from './Profile.styled';
 // import s from './Alert.module.css';
 
 function Profile({
@@ -9,28 +18,28 @@ function Profile({
   stats: { followers, views, likes },
 }) {
   return (
-    <div className="profile">
-      <div className="description">
-        <img src={avatar} alt={username} className="avatar" />
-        <p className="name">{username}</p>
-        <p className="tag">@{tag}</p>
-        <p className="location">{location}</p>
-      </div>
-      <ul className="stats">
-        <li>
-          <span className="label">Followers</span>
-          <span className="quantity">{followers}</span>
-        </li>
-        <li>
-          <span className="label">Views</span>
-          <span className="quantity">{views}</span>
-        </li>
-        <li>
-          <span className="label">Likes</span>
-          <span className="quantity">{likes}</span>
-        </li>
-      </ul>
-    </div>
+    <CardProfile>
+      <DescriptionCardProfile>
+        <PhotoProfile src={avatar} alt={username} />
+        <TextProfile name={username}>{username}</TextProfile>
+        <TextProfile>@{tag}</TextProfile>
+        <TextProfile>{location}</TextProfile>
+      </DescriptionCardProfile>
+      <StatsListProfile>
+        <StatsElementProfile>
+          <div className="label">Followers</div>
+          <StatsCount>{followers}</StatsCount>
+        </StatsElementProfile>
+        <StatsElementProfile>
+          <div className="label">Views</div>
+          <StatsCount>{views}</StatsCount>
+        </StatsElementProfile>
+        <StatsElementProfile>
+          <div className="label">Likes</div>
+          <StatsCount>{likes}</StatsCount>
+        </StatsElementProfile>
+      </StatsListProfile>
+    </CardProfile>
   );
 }
 

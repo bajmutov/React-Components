@@ -1,19 +1,26 @@
 import PropTypes from 'prop-types';
-// import s from './Alert.module.css';
+import {
+  StatisticsCount,
+  StatisticsFileName,
+  StatisticsHeading,
+  StatisticsItem,
+  StatisticsList,
+  StatisticsTitle,
+} from './Statistics.styled';
 
 function Statistics({ title, stats }) {
   return (
-    <section className="statistics">
-      {title && <h2 className="title">{title}</h2>}
-      <ul className="stat-list">
+    <StatisticsHeading>
+      {title && <StatisticsTitle>{title}</StatisticsTitle>}
+      <StatisticsList>
         {stats.map(stat => (
-          <li className="item" key={stat.id}>
-            <span className="label">{stat.label}</span>
-            <span className="percentage">{stat.percentage}</span>
-          </li>
+          <StatisticsItem key={stat.id}>
+            <StatisticsFileName>{stat.label}</StatisticsFileName>
+            <StatisticsCount>{stat.percentage}%</StatisticsCount>
+          </StatisticsItem>
         ))}
-      </ul>
-    </section>
+      </StatisticsList>
+    </StatisticsHeading>
   );
 }
 
